@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  valheim-server:
+    image: lloesche/valheim-server
+    ports:
+    # Port 2456-2457 is for the game server
+      - 2456-2457:2456-2457/udp
+    volumes:
+      - ./config:/config
+    environment:
+    # Preferable to set environment variables in a .env file
+      - SERVER_NAME=SERVER_NAME
+      - WORLD_NAME=SERVER_NAME
+      - SERVER_PASS=SERVER_PASS
+      - SERVER_PUBLIC=false
+
